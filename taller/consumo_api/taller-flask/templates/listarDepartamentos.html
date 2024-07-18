@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Listado de Departamentos</title>
+</head>
+<body>
+    <h1>Listado de Departamentos</h1>
+    <ul>
+        {% for departamento in departamentos %}
+        <li>{{ departamento.nombre_propietario }} - {{ departamento.costo }} - {{ departamento.numero_cuartos }} - {{ departamento.edificio.nombre }}</li>
+        {% endfor %}
+        <br>
+        <li><a href="{{ url_for('hello_world') }}">Regresar al Inicio</a></li>
+    </ul>
+</body>
+</html>

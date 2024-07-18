@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Bienvenido a la aplicación Flask</h1>
+    <ul>
+        <li><a href="{{ url_for('listar_edificios') }}">Listar Edificios</a></li>
+        <li><a href="{{ url_for('listar_departamentos') }}">Listar Departamentos</a></li>
+        <li><a href="{{ url_for('crear_edificio') }}">Crear Edificio</a></li>
+    </ul>
+</body>
+</html>

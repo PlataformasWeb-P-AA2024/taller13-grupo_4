@@ -102,37 +102,26 @@ def listar_departamentos(request):
     informacion_template = {'departamentos': departamentos, 'numeroDepartamentos': len(departamentos)}
     return render(request, 'listarDepartamentos.html', informacion_template)
 
+
+
 # Vistas basadas en Viewsets de Django Rest Framework
+
 class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class EdificioViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows buildings to be viewed or edited.
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
-    """
     queryset = Edificio.objects.all()
     serializer_class = EdificioSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class DepartamentoViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows departments to be viewed or edited.
-    """
     queryset = Departamento.objects.all()
     serializer_class = DepartamentoSerializer
     # permission_classes = [permissions.IsAuthenticated]

@@ -1,11 +1,6 @@
-from django.urls import path, include
-from rest_framework import routers
+from django.urls import path
 from . import views
-from .views import EdificioViewSet, DepartamentoViewSet
 
-router = routers.DefaultRouter()
-router.register(r'edificios', EdificioViewSet)
-router.register(r'departamentos', DepartamentoViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -21,8 +16,6 @@ urlpatterns = [
     path('crearDepartamento/', views.crear_departamento, name='crear_departamento'),
     path('editarDepartamento/<int:id>/', views.editar_departamento, name='editar_departamento'),
     path('eliminarDepartamento/<int:id>/', views.eliminar_departamento, name='eliminar_departamento'),
-    
-    # Incluye las rutas de la API
-    path('api/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
 ]
+    

@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Confirmar Eliminación de Edificio
+{% endblock %}
+
+{% block content %}
+<h2>¿Está seguro de eliminar este Edificio?</h2>
+
+<p>Nombre: {{ edificio.nombre }}</p>
+<p>Dirección: {{ edificio.direccion }}</p>
+
+<form action="{% url 'eliminar_edificio' edificio.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Eliminar</button>
+  <a href="{% url 'listar_edificios' %}">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "master.html" %}
+
+{% block title %}
+Listado de Edificios
+{% endblock %}
+
+{% block content %}
+<h2>Listado de Edificios</h2>
+
+<table id="tablaEdificios" class="display">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Dirección</th>
+      <th>Ciudad</th>
+      <th>Tipo</th>
+      <th>Departamentos</th>
+      <th>Total de Cuartos</th>
+      <th>Costo Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for edificio in edificios %}
+    <tr>
+      <td>{{ edificio.nombre }}</td>
+      <td>{{ edificio.direccion }}</td>
+      <td>{{ edificio.ciudad }}</td>
+      <td>{{ edificio.tipo }}</td>
+      <td>
+        <ul>
+          {% for departamento in edificio.departamentos.all %}
+          <li>{{ departamento.nombre_propietario }}</li>
+          {% endfor %}
+        </ul>
+      </td>
+      <td>{{ edificio.total_cuartos }}</td>
+      <td>${{ edificio.total_costo }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#tablaEdificios').DataTable();
+  });
+</script>
+{% endblock %}

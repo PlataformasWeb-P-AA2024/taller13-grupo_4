@@ -1,0 +1,18 @@
+{% extends "master.html" %}
+
+{% block title %}
+Editar Edificio
+{% endblock %}
+
+{% block content %}
+<h2>Editar Edificio</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar Cambios</button>
+</form>
+
+
+{% endblock %}
+

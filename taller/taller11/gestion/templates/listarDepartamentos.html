@@ -1,0 +1,40 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Listado de Departamentos
+{% endblock %}
+
+{% block content %}
+<br>
+<h3>Número de Departamentos: {{ numeroDepartamentos }}</h3>
+
+<table id="tablaDepartamentos">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Costo</th>
+      <th>Numeró Cuartos</th>
+      <th>Edificio</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+    {% for departamento in departamentos %}
+    <tr>
+      <td>{{ departamento.nombre_propietario}}</td>
+      <td>{{ departamento.costo }}</td>
+      <td>{{ departamento.numero_cuartos }}</td>
+      <td>{{ departamento.edificio.nombre }}</td>
+      <td>
+        <a href="{% url 'editar_departamento' departamento.id %}">editar</a><br>
+        <a href="{% url 'eliminar_departamento' departamento.id %}" onclick="return confirm('¿Está seguro de la eliminación?')">eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#tablaDepartamentos').DataTable();
+  });
+</script>
+{% endblock %}

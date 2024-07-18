@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Editar Departamento
+{% endblock %}
+
+{% block content %}
+<h2>Editar Departamento</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar Cambios</button>
+</form>
+{% endblock %}
+[<a href="{% url 'index' %}">inicio</a>]
